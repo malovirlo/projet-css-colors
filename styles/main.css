@@ -1,3 +1,61 @@
-.main {
-  height: 100vh;
+main {
+    height: 100vh;
+}
+
+body {
+    background-image: linear-gradient(black, grey);
+    transition: background-image 5s ease-in-out;
+}
+
+.black {
+    background-image: linear-gradient(black, grey);
+}
+
+.red {
+    background-image: linear-gradient(black, red);
+}
+
+.green {
+    background-image: linear-gradient(black, green);
+}
+
+.blue {
+    background-image: linear-gradient(black, blue);
+}
+
+.orange {
+    background-image: linear-gradient(black, orange);
+}
+
+@keyframes bougeDroiteAGauche {
+    0% {
+        transform: translateX(1000%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.imagekibouge {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 30%;
+    position: relative;
+    animation: bougeDroiteAGauche 5s linear infinite;
+}
+
+.bateau {
+    background-image: url("../images/bateau-des-pirate.jpg");
+}
+
+.soucoupe {
+    background-image: url("../images/soucoupe-volante.png");
+}
+
+.voiture {
+    height: 83px;
+    transform: scaleX(-1) !important;
+    background-image: url("../images/voiture.png");
 }

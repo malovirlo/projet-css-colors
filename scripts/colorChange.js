@@ -1,37 +1,54 @@
 const colorChange = () => {
-  document.addEventListener("DOMContentLoaded", () => {
-    const colorDivs = document.querySelectorAll(".color");
-    document.body.style.transition = "background-image 5s ease-in-out";
-    document.body.style.backgroundImage = "linear-gradient(black, grey)";
+    document.addEventListener("DOMContentLoaded", () => {
+        const colorDivs = document.querySelectorAll(".color");
+        const images = document.querySelectorAll(".imagekibouge"); // Correction ici
 
-    colorDivs.forEach((div) => {
-      div.addEventListener("click", () => {
-        let gradient;
-        switch (div.classList[1]) {
-          case "black":
-            gradient = "linear-gradient(black, grey)";
-            break;
+        const colorClasses = ["black", "red", "green", "blue", "orange"];
 
-          case "red":
-            gradient = "linear-gradient(black, red)";
-            break;
+        colorDivs.forEach((div) => {
+            div.onclick = () => {
+                // Masquer toutes les images au début
+                images.forEach((image) => {
+                    image.style.display = "none";
+                });
 
-          case "green":
-            gradient = "linear-gradient(black, green)";
-            break;
+                // Obtenir la couleur à partir de la classe de l'élément cliqué
+                const color = div.classList[1];
 
-          case "blue":
-            gradient = "linear-gradient(black, blue)";
-            break;
+                // Retirer toutes les classes de couleur du body
+                document.body.classList.remove(...colorClasses);
 
-          case "orange":
-            gradient = "linear-gradient(black, orange)";
-            break;
-        }
-        document.body.style.backgroundImage = gradient;
-      });
+                // Ajouter la nouvelle classe de couleur au body
+                document.body.classList.add(color);
+                switch (color) {
+                    case "black":
+                        document.querySelector(".soucoupe").style.display =
+                            "block";
+                        break;
+
+                    case "red":
+                        document.querySelector(".soucoupe").style.display =
+                            "block";
+                        break;
+
+                    case "green":
+                        document.querySelector(".soucoupe").style.display =
+                            "block";
+                        break;
+
+                    case "blue":
+                        document.querySelector(".bateau").style.display =
+                            "block";
+                        break;
+
+                    case "orange":
+                        document.querySelector(".voiture").style.display =
+                            "block";
+                        break;
+                }
+            };
+        });
     });
-  });
 };
 
 export { colorChange };
